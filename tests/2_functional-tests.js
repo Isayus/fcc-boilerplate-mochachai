@@ -32,19 +32,24 @@ test('Test GET /hello with your name', function (done) {
       done();
     });
     });
-    // #3
-    test('Send {surname: "Colombo"} in a PUT request', function (done) {
-      chai
-        .request(server)
-        .keepOpen()
-        .put('/travellers')
-        
-        .end(function (err, res) {
-          assert.fail();
+   // #3
+test('Send {surname: "Colombo"} in a PUT request', function (done) {
+  chai
+    .request(server)
+    .keepOpen()
+    .put('/travellers')
+    // Con .send() añadimos el cuerpo de la petición
+    .send({ surname: 'Colombo' })
+    .end(function (err, res) {
+      // Aquí van las 4 comprobaciones en orden
+      assert.equal(res.status, 200);
+      assert.equal(res.type, 'application/json');
+      assert.equal(res.body.name, 'Cristoforo');
+      assert.equal(res.body.surname, 'Colombo');
 
-          done();
-        });
+      done(); // Le decimos a Mocha que el test ha terminado
     });
+});
     // #4
     test('Send {surname: "da Verrazzano"} in a PUT request', function (done) {
       assert.fail();
