@@ -38,25 +38,32 @@ test('Send {surname: "Colombo"} in a PUT request', function (done) {
     .request(server)
     .keepOpen()
     .put('/travellers')
-    // Con .send() añadimos el cuerpo de la petición
     .send({ surname: 'Colombo' })
     .end(function (err, res) {
-      // Aquí van las 4 comprobaciones en orden
       assert.equal(res.status, 200);
       assert.equal(res.type, 'application/json');
       assert.equal(res.body.name, 'Cristoforo');
       assert.equal(res.body.surname, 'Colombo');
 
-      done(); // Le decimos a Mocha que el test ha terminado
+      done(); 
     });
 });
-    // #4
-    test('Send {surname: "da Verrazzano"} in a PUT request', function (done) {
-      assert.fail();
+  // #4
+test('Send {surname: "da Verrazzano"} in a PUT request', function (done) {
+    chai
+    .request(server)
+    .keepOpen()
+    .put('/travellers')
+    .send({ surname: 'da Verrazzano' }) 
+    .end(function (err, res) {
+      assert.equal(res.status, 200);
+      assert.equal(res.type, 'application/json');
+      assert.equal(res.body.name, 'Giovanni');
+      assert.equal(res.body.surname, 'da Verrazzano');
 
       done();
     });
-  });
+});
 });
 
 const Browser = require('zombie');
