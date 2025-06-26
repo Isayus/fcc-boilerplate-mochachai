@@ -21,7 +21,7 @@ suite('Unit Tests', function () {
   assert.isOk(true, 'true is truthy');
   });
    // #4
-test('#isTrue, #isNotTrue', function() {
+  test('#isTrue, #isNotTrue', function() {
   assert.isTrue(true, 'true is true');
   assert.isTrue(!!'double negation', 'Double negation of a truthy value is true');
   assert.isNotTrue({ value: 'truthy' }, 'Objects are truthy, but are not boolean values');
@@ -31,13 +31,13 @@ test('#isTrue, #isNotTrue', function() {
   // -----------------------------------------------------------------------------
 
   suite('Equality', function () {
-    // #5
-    test('#equal, #notEqual', function () {
-      assert.equal(12, '12', 'Numbers are coerced into strings with ==');
-      assert.notEqual({ value: 1 }, { value: 1 }, '== compares object references');
-      assert.equal(6 * '2', '12');
-      assert.notEqual(6 + '2', '12');
-    });
+   // #5
+  test('#equal, #notEqual', function () {
+  assert.equal(12, '12', 'Numbers are coerced into strings with ==');
+  assert.notEqual({ value: 1 }, { value: 1 }, '== compares object references');
+  assert.equal(6 * '2', '12');
+  assert.notEqual(6 + '2', '12');
+});
     // #6
     test('#strictEqual, #notStrictEqual', function () {
       assert.notStrictEqual(6, '6');
