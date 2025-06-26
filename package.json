@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "mocha --ui tdd tests/1_unit-tests.js"
+    "test": "mocha tests/ --ui tdd"
   },
   "dependencies": {
     "body-parser": "1.19.0",
@@ -18,3 +18,4 @@
   },
   "license": "MIT"
 }
+
